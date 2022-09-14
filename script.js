@@ -80,7 +80,7 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p class="mt-4">You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p class="mt-3">You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button class="mt-4" onclick="closeModal()">Close</button>
   `;
