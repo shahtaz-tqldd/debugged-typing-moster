@@ -14,7 +14,7 @@ const displayBlogs = blogs =>{
                 <img src="${blog.image}" class="card-img-top" alt="..." style="height:230px; object-fit:cover">
                 <div class="card-body">
                     <h5 class="card-title">${blog.title}</h5>
-                    <p class="card-text">${blog.body}</p>
+                    <p class="card-text">${blog.body.slice(0, 130)+'...'}</p>
                     <button onclick=blogDetail(${blog.id}) class="btn btn-dark rounded-1" data-bs-toggle="modal" data-bs-target="#blog">Read Full Article</button>
                 </div>
             </div>
@@ -36,9 +36,8 @@ const showBlog = blog =>{
     const blogBody = document.getElementById('blog-body')
     blogBody.innerHTML = `
         <img src="${blog.image}" alt="${blog.title}"  style="height:300px; width:100%; object-fit:cover">
-        <p class="mt-4">${blog.body}</p>
+        <p class="mt-4" style="white-space:pre-wrap; word-break: break-word;">${blog.body}</p>
     `
-    
 }
 
-loadBlogs()
+loadBlogs();

@@ -35,7 +35,7 @@ function displayHistory() {
       <h3>${test.questionText}</h3>
       <p>You took: <span class="bold ms-1">${test.timeTaken}</span> seconds</p>
       <p>You made: <span class="bold red ms-1">${test.errorCount}</span> mistakes</p>
-      <p>Typing Speed: <span class="bold green ms-1">${speed}</span> words per minutes</p>
+      <p>Typing Speed: <span class="bold green ms-1">${speed}</span> words per minute</p>
   `;
 
     histories.appendChild(newRow);
