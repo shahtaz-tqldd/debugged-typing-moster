@@ -29,10 +29,13 @@ function displayHistory() {
     const newRow = document.createElement("div");
     newRow.classList.add("card");
 
+    const speed = Math.floor((test.questionText.split(' ').length / test.timeTaken)*60);
+
     newRow.innerHTML = `
-  <h3>${test.questionText}</h3>
-  <p>You took: <span class="bold ms-1">${test.timeTaken}</span> seconds</p>
-    <p>You made <span class="bold red ms-1">${test.errorCount}</span> mistakes</p>
+      <h3>${test.questionText}</h3>
+      <p>You took: <span class="bold ms-1">${test.timeTaken}</span> seconds</p>
+      <p>You made: <span class="bold red ms-1">${test.errorCount}</span> mistakes</p>
+      <p>Typing Speed: <span class="bold green ms-1">${speed}</span> words per minutes</p>
   `;
 
     histories.appendChild(newRow);
