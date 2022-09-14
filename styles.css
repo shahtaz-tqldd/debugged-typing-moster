@@ -84,6 +84,9 @@ body {
 .mt-3{
   margin-top: 30px;
 }
+.ms-1{
+  margin-left: 5px;
+}
 
 #show-time{
   text-align: center;
@@ -152,9 +155,9 @@ button {
 }
 
 #histories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }
 
 .card {
@@ -162,9 +165,10 @@ button {
   height: 100%;
   padding: 50px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
+  align-items: start;
+  padding: 15px 30px;
   color: white;
   border-radius: 15px;
   background: rgb(255, 255, 255);
@@ -198,5 +202,16 @@ button {
   }
   .card {
     flex-direction: column;
+  }
+  #histories {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+@media only screen and (min-width:700px) and (max-width: 1024px) {
+  #histories {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 25px;
   }
 }
