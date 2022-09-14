@@ -19,6 +19,7 @@ fetch("./texts.json")
     question.innerHTML = questionText;
   });
 
+let count = 0;
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
@@ -42,9 +43,11 @@ const typeController = (e) => {
 
   const newLetterCorrect = validate(newLetter);
 
+  
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
+    count+=1;
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
 
@@ -52,7 +55,9 @@ const typeController = (e) => {
   if (questionText === userText) {
     gameOver();
   }
+  // console.log(count)
 };
+
 
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
@@ -79,7 +84,8 @@ const gameOver = () => {
   display.classList.add("inactive");
   //caculate typing speed
   const speed = Math.floor((questionText.split(' ').length / timeTaken)*60);
-
+  //errorCount
+  errorCount = count;
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
@@ -88,7 +94,7 @@ const gameOver = () => {
     <p>Typing Speed: <span class="bold green">${speed}</span> words per minutes</p>
     <button class="mt-4" onclick="closeModal()">Close</button>
   `;
-
+  
   addHistory(questionText, timeTaken, errorCount);
 
   // restart everything
