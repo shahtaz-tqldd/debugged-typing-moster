@@ -8,14 +8,18 @@ const loadBlogs = () => {
 const displayBlogs = blogs =>{
     blogs.forEach(blog => {
         const blogDiv = document.createElement('div')
-        blogDiv.classList.add('col')
+        blogDiv.classList.add('col', 'mt-4')
         blogDiv.innerHTML = `
-            <div class="card my-2 border-0 shadow">
+            <div class="card border-0 shadow h-100">
                 <img src="${blog.image}" class="card-img-top" alt="..." style="height:230px; object-fit:cover">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
                     <h5 class="card-title">${blog.title}</h5>
                     <p class="card-text">${blog.body.slice(0, 130)+'...'}</p>
-                    <button onclick=blogDetail(${blog.id}) class="btn btn-dark rounded-1" data-bs-toggle="modal" data-bs-target="#blog">Read Full Article</button>
+                    </div>
+                    <div>
+                    <button onclick=blogDetail(${blog.id}) class="mt-2 btn btn-dark rounded-1" data-bs-toggle="modal" data-bs-target="#blog">Read Full Article</button>
+                    </div>
                 </div>
             </div>
         `

@@ -23,6 +23,7 @@ let count = 0;
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
+  // e.key == ' '? e.preventDefault(): '';
 
   // Handle backspace press
   if (newLetter == "Backspace") {
@@ -115,6 +116,7 @@ const start = () => {
 
   let count = 3;
   countdownOverlay.style.display = "flex";
+  countdownOverlay.innerHTML = '';
 
   const startCountdown = setInterval(() => {
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
